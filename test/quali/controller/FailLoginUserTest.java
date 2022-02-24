@@ -1,6 +1,6 @@
 package quali.controller;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,13 +15,12 @@ public class FailLoginUserTest {
 	@Before
 	public void init() {
 		Context.getInstance().load();
-		user = Context.getInstance().findUser("user@gmail.com", "mdp");
-		Context.getInstance().setLoggedUser(user);
+		user = Context.getInstance().findUser("unknow@gmail.com", "mdp");
 	}
 
 	@Test
 	public void testInstance()
 	{
-		assertNotNull(user);
+		assertNull(user);
 	}
 }
