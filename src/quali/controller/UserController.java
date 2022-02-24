@@ -73,6 +73,7 @@ public class UserController extends DecorationController implements Initializabl
 
 		deconnect.setOnMouseClicked(event -> {
 			try {
+				Context.getInstance().setLoggedUser(null);
 				CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_HOME_FXML));
 			} catch (IOException e) {
 				Main.LOGGER.severe("Impossible de charger la page d'accueil");

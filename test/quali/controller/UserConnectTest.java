@@ -1,4 +1,4 @@
-package quali.view;
+package quali.controller;
 
 import static org.junit.Assert.*;
 
