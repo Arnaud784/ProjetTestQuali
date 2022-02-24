@@ -98,7 +98,7 @@ public class RegisterController extends DecorationController implements Initiali
 						CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_USER_FXML));
 					}
 				} catch (IOException e) {
-					Main.LOGGER.severe("Impossible de charger la page de l'utilisateur");
+					Main.LOGGER.severe("Impossible de charger la page de l'utilisateur !");
 				}
 			} else {
 				SnackAlertService.displayInformation("Cet email est déjà utilisé !", snackBar, Duration.seconds(3), SnackAlertService.AlertSnackType.ERROR);
