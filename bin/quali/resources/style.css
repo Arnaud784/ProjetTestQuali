@@ -1,0 +1,255 @@
+ .buttons:hover{
+	-fx-background-color: #616975;
+	-fx-border-color: #00cbcf;
+	-fx-border-width: 0px 0px 0px 5px;
+	-fx-cursor: hand;
+}
+
+.buttons{
+	-fx-border-color:  #49515e;
+	-fx-border-width: 0px 0px 0px 5px;
+}
+
+
+.error-alert {
+	-fx-background-color :  #49515e;
+	-fx-border-color: #ff674f;
+	-fx-border-width: 10px 0px 0px 0px;
+}
+
+.error-snack {
+	-fx-background-color : #ff674f;
+	-fx-text-fill: white;
+	-fx-border-radius: 15px;
+	-fx-bacground-border-radius: 15px;
+	-fx-padding: 20px;
+}
+
+.warning-alert {
+	-fx-background-color :  #49515e;
+	-fx-border-color: #ff913d;
+	-fx-border-width: 10px 0px 0px 0px;
+}
+
+.warning-snack {
+	-fx-background-color : #ff913d;
+}
+
+.information-alert {
+	-fx-background-color :  #49515e;
+	-fx-border-color: #00cbcf;
+	-fx-border-width: 10px 0px 0px 0px;
+}
+
+.success-alert {
+	-fx-text-fill: white;
+	-fx-border-radius: 15px;
+	-fx-bacground-border-radius: 15px;
+	-fx-padding: 20px;
+	-fx-background-color :  #51A852;
+}
+
+.information-snack {
+	-fx-background-color :#00cbcf;
+}
+
+.dark-button {
+	-fx-background-color: #616975;
+	-fx-border-color:  #49515e;
+	-fx-border-width: 0px 0px 0px 5px;
+	-fx-text-fill:#fff;
+	-fx-cursor: hand;
+}
+
+.dark-title {
+	-fx-background-color: #616975;
+	-fx-text-fill:#fff;
+	-fx-border-radius:15px;
+	-fx-background-radius:15px;
+}
+
+.drag-n-drop-zone {
+	-fx-background-color: #616975;
+}
+
+.drag-n-drop-zone:hover {
+	-fx-border-color: #00cbcf;
+	-fx-border-width: 2;
+	-fx-border-style: segments(10, 15, 15, 15) line-cap round;
+}
+
+.dark-button:hover{
+	-fx-background-color: #616975;
+	-fx-border-color: #00cbcf;
+	-fx-border-width: 0px 0px 0px 5px;
+	-fx-text-fill:#fff;
+}
+
+.btn-header:hover{
+	-fx-background-color: #808896;
+}
+
+.highlighted-btn{
+	-fx-background-color:  #56bdbf;
+}
+
+.highlighted-btn:hover{
+	-fx-border-color:  #49515e;
+	-fx-border-width: 0px 0px 0px 5px;
+}
+
+.box{
+	-fx-background-color:  #3d424a;
+	-fx-border-width: 0px 0px 0px 5px;
+	-fx-border-radius: 15px;
+	-fx-background-radius: 15px;
+}
+
+.box:hover {
+	-fx-border-color: #00cbcf;
+	-fx-border-width: 0px 0px 5px 0px;
+	-fx-border-radius: 15px;
+	-fx-background-radius: 15px;
+}
+
+.dark-box{
+	-fx-background-color :  #49515e;
+}
+
+.linear-grad {
+	-fx-background-color: linear-gradient(to top left, #56bdbf, #011627);
+}
+
+.linear-grad-header-login {
+	-fx-background-color: linear-gradient(to top right, #011627, #49515e);
+}
+
+.white-pane {
+	-fx-background-color: #FDFFFC;
+}
+
+.table-view .table-column {
+	-fx-alignment: CENTER;
+}
+
+#deliveryTable .table-column Button {
+	-fx-padding: 0px 40px 0px 40px;
+	-fx-border-radius: 10px;
+	-fx-background-radius: 10px;
+}
+
+Button.edit {
+	-fx-background-color :  #edbf34;
+	-fx-text-fill:#fff;
+}
+
+Button.open {
+	-fx-background-color :  #00cbcf;
+	-fx-text-fill:#fff;	
+}
+
+
+Button.delete {
+	-fx-background-color :  #ff674f;
+	-fx-text-fill:#fff;
+}
+
+.table-view {
+	-fx-background-color : #49515e;
+}
+
+.table-view:focused {
+	-fx-background-color : #616975;
+}
+
+.list-view:focused {
+	-fx-background-color : #616975;	
+}
+
+.list-view .list-cell:hover {
+	-fx-background-color: #616975;
+}
+
+.table-view .column-header-background {
+	-fx-background-color : #616975;
+}
+
+.table-view .column-header-background .label {
+	-fx-background-color: #616975;
+	-fx-text-fill: white;
+}
+
+.table-view .column-header {
+	-fx-background-color: #616975;
+}
+
+.table-view .table-cell {
+	-fx-text-fill: white;
+}
+
+.table-row-cell:hover{
+	-fx-background-color: #616975;
+}
+
+.table-row-cell {
+	-fx-background-color: -fx-table-cell-border-color, #49515e;
+}
+
+.combo-box, .combo-box-popup{
+	-fx-background-color: #616975;
+	-fx-text-fill: white;
+	-fx-cursor: hand;
+}
+
+.list-view, .list-cell {
+	-fx-background-color: #616975;
+	-fx-text-fill: white;
+}
+
+ .list-view .list-cell:hover, .list-cell:selected {
+ 	-fx-background-color: #3e4247;
+	-fx-text-fill: white;
+	-fx-cursor: hand;	
+ }
+
+.hidden {
+	display: none;
+}
+
+.list-cell:failed {
+	-fx-text-fill: #cf6679;
+}
+
+.list-cell:succeded {
+	-fx-text-fill: #85cc66;
+}
+
+
+
+.list-cell:information {
+	-fx-text-fill: #66accc;
+}
+
+.list-cell:warning {
+	-fx-text-fill: #cc9766;
+}
+
+.list-cell:fatal {
+	-fx-text-fill: #b184f5;
+}
+
+.clickable:hover {
+	-fx-cursor: hand;
+}
+
+.accordion > .titled-pane > .title {
+	-fx-background-color: #616975;
+}
+
+.info-badge {
+	-fx-background-color : #616975;
+	-fx-text-fill: white;
+	-fx-border-radius: 20 20 20 20;
+	-fx-background-border-radius: 20 20 20 20;
+	-fx-padding: 5px;
+}
