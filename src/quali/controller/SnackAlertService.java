@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import quali.Main;
 
 public class SnackAlertService {
 
@@ -34,7 +35,7 @@ public class SnackAlertService {
 			snackBar.setLayoutY(0.0);
 			snackBar.enqueue(new SnackbarEvent(label,duration));
 		} catch (IOException e) {
-			e.printStackTrace();
+			Main.LOGGER.severe("Impossible d'afficher un message popup");
 		}
 	}
 }

@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsersList {
-	
-	private List<User> usersList;
-	
+
+	private List<User> listUsers;
+
 	protected UsersList() {
-		this.usersList = new ArrayList<>();
+		this.listUsers = new ArrayList<>();
 	}
 
 	public List<User> getUsersList() {
-		return usersList;
+		return listUsers;
 	}
 
 	public void setUsersList(List<User> usersList) {
-		this.usersList = usersList;
+		this.listUsers = usersList;
 	}
 }

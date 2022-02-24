@@ -25,7 +25,9 @@ public class Main extends Application {
 	public static final Logger LOGGER = Logger.getLogger(HomeController.class.getName());
 
 	private static Stage stage;
+
 	private static Scene scene;
+
 	public static void main(String[] args) {
 		launch(args);
 	}
