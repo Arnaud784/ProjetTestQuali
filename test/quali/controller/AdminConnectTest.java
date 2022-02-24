@@ -13,8 +13,10 @@ public class AdminConnectTest {
 	User user;
 
 	@Before
-	public void createEntity() {
+	public void init() {
+		Context.getInstance().load();
 		user = Context.getInstance().findUser("admin@gmail.com", "mdp");
+		Context.getInstance().setLoggedUser(user);
 	}
 
 	@Test
@@ -27,5 +29,11 @@ public class AdminConnectTest {
 	public void testType()
 	{
 		assertEquals(true, user.isAdmin());
+	}
+
+	@Test
+	public void testLogged()
+	{
+		assertNotNull(Context.getInstance().getLoggedUser());
 	}
 }

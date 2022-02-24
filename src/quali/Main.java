@@ -45,7 +45,7 @@ public class Main extends Application {
 			primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream(ICONS_QUALI_PNG)));
 			BorderPane rootContainer = FXMLLoader.load(getClass().getResource(COMMONS_VIEWS_CANVAS_FXML));
 			CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_HOME_FXML));
-			setScene(new Scene(rootContainer,1000,500));
+			setScene(new Scene(rootContainer,1200,500));
 			primaryStage.initStyle(StageStyle.UNDECORATED);
 			primaryStage.setScene(scene);
 			primaryStage.show();

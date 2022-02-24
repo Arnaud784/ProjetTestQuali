@@ -9,15 +9,31 @@ import quali.model.Context;
 import quali.model.User;
 
 public class UserConnectTest {
-	
+
+	User user;
+
 	@Before
 	public void init() {
 		Context.getInstance().load();
+		user = Context.getInstance().findUser("user@gmail.com", "mdp");
+		Context.getInstance().setLoggedUser(user);
 	}
-	
+
 	@Test
-	public void loginUserTest() {
-		User user = Context.getInstance().findUser("email", "password");
+	public void testInstance()
+	{
 		assertNotNull(user);
+	}
+
+	@Test
+	public void testType()
+	{
+		assertEquals(false, user.isAdmin());
+	}
+
+	@Test
+	public void testLogged()
+	{
+		assertNotNull(Context.getInstance().getLoggedUser());
 	}
 }
