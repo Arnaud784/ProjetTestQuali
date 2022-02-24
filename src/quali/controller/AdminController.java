@@ -49,7 +49,7 @@ public class AdminController extends DecorationController implements Initializab
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(root, Main.getStage(),false);
 
-		usersTable.setItems(Context.getInstance().getUsersList());
+		usersTable.setItems(Context.getInstance().getUsersListProperty());
 		firstname.setCellValueFactory(cellData -> cellData.getValue().getFirstNameProperty());
 		lastname.setCellValueFactory(cellData -> cellData.getValue().getLastNameProperty());
 		email.setCellValueFactory(cellData -> cellData.getValue().getEmailProperty());

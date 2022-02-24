@@ -51,12 +51,16 @@ public class Context {
 		this.passIsForgot = bool;
 	}
 
-	public ListProperty<User> getUsersList() {
+	public ListProperty<User> getUsersListProperty() {
 		ListProperty<User> users = new SimpleListProperty<>(FXCollections.observableArrayList());
 		for(User user : usersList.getUsersList()) {
 			users.add(user);
 		}
 		return users;
+	}
+
+	public List<User> getUsersList() {
+		return this.usersList.getUsersList();
 	}
 
 	public void setUsersList(UsersList usersList) {
@@ -119,7 +123,7 @@ public class Context {
 	 * @return Le User ou null si n'existe pas
 	 */
 	public User findUser(String email, String password) {
-		List<User> users = Context.getInstance().getUsersList();
+		List<User> users = Context.getInstance().getUsersListProperty();
 		for(User user : users) {
 			if(user.getEmail().equals(email) && user.getPassword().equals(password)) {
 				return user;
@@ -134,7 +138,7 @@ public class Context {
 	 * @return Le User ou null si n'existe pas
 	 */
 	public User findUser(String email) {
-		List<User> users = Context.getInstance().getUsersList();
+		List<User> users = Context.getInstance().getUsersListProperty();
 		for(User user : users) {
 			if(user.getEmail().equals(email)) {
 				return user;
@@ -149,7 +153,7 @@ public class Context {
 	 * @return	Le nouveau mot de passe ou null si le compte n'existe pas
 	 */
 	public String recovery(String email) {
-		List<User> users = Context.getInstance().getUsersList();
+		List<User> users = Context.getInstance().getUsersListProperty();
 		for(User user : users) {
 			if(user.getEmail().equals(email)) {
 				return user.getPassword();

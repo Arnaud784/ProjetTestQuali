@@ -1,5 +1,7 @@
 package quali;
 
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
 import java.util.logging.Logger;
 
 import javafx.application.Application;
@@ -36,12 +38,14 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		Context.getInstance().load();
 		Context.getInstance().setLoggedUser(null);
+		Handler fh = new FileHandler("Logs.log");
+	    LOGGER.addHandler(fh);
 		try {
 			setStage(primaryStage);
 			primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream(ICONS_QUALI_PNG)));
 			BorderPane rootContainer = FXMLLoader.load(getClass().getResource(COMMONS_VIEWS_CANVAS_FXML));
 			CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_HOME_FXML));
-			setScene(new Scene(rootContainer,900,450));
+			setScene(new Scene(rootContainer,1000,500));
 			primaryStage.initStyle(StageStyle.UNDECORATED);
 			primaryStage.setScene(scene);
 			primaryStage.show();
