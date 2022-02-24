@@ -15,6 +15,7 @@ import com.google.gson.GsonBuilder;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
+import quali.Main;
 
 public class Context {
 
@@ -26,28 +27,28 @@ public class Context {
 
 	private UsersList usersList;
 
-	private String passwordIsForgot;
+	private String passIsForgot;
 
-	private static Context INSTANCE;
+	private static Context instance;
 
 	public static Context getInstance(){
-		if (INSTANCE == null) {
-			INSTANCE = new Context();
+		if (instance == null) {
+			instance = new Context();
 		}
-		return INSTANCE;
+		return instance;
 	}
 
 	private Context() {
 		this.usersList = new UsersList();
-		this.passwordIsForgot = "";
+		this.passIsForgot = "";
 	}
 
 	public String getPasswordIsForgot() {
-		return this.passwordIsForgot;
+		return this.passIsForgot;
 	}
 
 	public void setPasswordIsForgot(String bool) {
-		this.passwordIsForgot = bool;
+		this.passIsForgot = bool;
 	}
 
 	public ListProperty<User> getUsersList() {
@@ -83,7 +84,7 @@ public class Context {
 				Reader reader = Files.newBufferedReader(Paths.get(SAVES_LOCATION), Charset.forName(ENCODING_CHARSET));
 				this.usersList = gson.fromJson(reader, UsersList.class);
 			} catch (IOException e) {
-				e.printStackTrace();
+				Main.LOGGER.severe("Impossible de lire le fichier de sauvegarde");
 			}
 		}
 	}
@@ -95,9 +96,11 @@ public class Context {
 		File file = new File(SAVES_LOCATION);
 		if (!file.exists()) {
 			try {
-				file.createNewFile();
+				if(!file.createNewFile()) {
+					Main.LOGGER.severe("Impossible de créer le fichier de sauvegarde");
+				}
 			} catch (IOException e) {
-				e.printStackTrace();
+				Main.LOGGER.severe("Impossible de créer le fichier de sauvegarde");
 			}
 		}
 		try(FileWriter fos = new FileWriter(file)) {
@@ -105,7 +108,7 @@ public class Context {
 			Gson gson = builder.create();
 			fos.write(gson.toJson(this.usersList));
 		} catch (Exception e) {
-			e.printStackTrace();
+			Main.LOGGER.severe("Impossible d'écrire le fichier de sauvegarde");
 		}
 	}
 

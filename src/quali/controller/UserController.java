@@ -1,6 +1,5 @@
 package quali.controller;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -52,7 +51,7 @@ public class UserController extends DecorationController implements Initializabl
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		super.initialize(root, Main.stage,false);
+		super.initialize(root, Main.getStage(),false);
 
 		User user = Context.getInstance().getLoggedUser();
 		firstname.setText(user.getFirstName());
@@ -64,21 +63,19 @@ public class UserController extends DecorationController implements Initializabl
 
 		InputStream stream = null;
 		try {
-			File path = new File("");
-			System.out.println(path.getAbsolutePath());
 			stream = new FileInputStream("src/quali/resources/photo.jpg");
 
 			Image image = new Image(stream);
 			picture.setImage(image);
 		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
+			Main.LOGGER.severe("Impossible de charger la photo de l'utilisateur");
 		}
 
 		deconnect.setOnMouseClicked(event -> {
 			try {
 				CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_HOME_FXML));
 			} catch (IOException e) {
-				e.printStackTrace();
+				Main.LOGGER.severe("Impossible de charger la page d'accueil");
 			}
 		});
 	}

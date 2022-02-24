@@ -17,7 +17,7 @@ import quali.Main;
 import quali.model.Context;
 
 public class CanvasController extends DecorationController implements Initializable {
-	
+
 	@FXML
 	private HBox header;
 
@@ -33,7 +33,7 @@ public class CanvasController extends DecorationController implements Initializa
 	@FXML
 	private BorderPane windowPlaceholder;
 
-	public static BorderPane container;
+	private static BorderPane container;
 
 	@FXML
 	private Pane petcpBtn;
@@ -47,11 +47,19 @@ public class CanvasController extends DecorationController implements Initializa
      * @param mainApp Instance de main
      */
 	public void initialize(URL location, ResourceBundle resources) {
-		super.initialize(header,Main.stage,true);
+		super.initialize(header,Main.getStage(),true);
 		setButtonsActions();
-		container = this.windowPlaceholder;
+		setContainer(this.windowPlaceholder);
     }
-    
+
+	public static BorderPane getContainer() {
+		return container;
+	}
+
+	public static void setContainer(BorderPane container) {
+		CanvasController.container = container;
+	}
+
 	/**
 	 * Définit le comportement des différents bouton
 	 */
@@ -61,13 +69,9 @@ public class CanvasController extends DecorationController implements Initializa
 			super.close();
 		});
 
-		maximize.setOnMouseClicked(event -> {
-			super.maximize();
-		});
+		maximize.setOnMouseClicked(event -> super.maximize());
 
-		minimize.setOnMouseClicked(event -> {
-			super.minimize();
-		});
+		minimize.setOnMouseClicked(event -> super.minimize());
 	}
 
 	/**

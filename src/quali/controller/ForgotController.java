@@ -34,7 +34,7 @@ public class ForgotController extends DecorationController implements Initializa
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		super.initialize(root, Main.stage,false);
+		super.initialize(root, Main.getStage(),false);
 
 		recoveryBtn.setOnMouseClicked(event -> recovery());
 
@@ -42,7 +42,7 @@ public class ForgotController extends DecorationController implements Initializa
 			try {
 				CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_HOME_FXML));
 			} catch (IOException e) {
-				e.printStackTrace();
+				Main.LOGGER.severe("Impossible de charger la page d'accueil");
 			}
 		});
 	}
@@ -61,7 +61,6 @@ public class ForgotController extends DecorationController implements Initializa
 					CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_HOME_FXML));
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
 				SnackAlertService.displayInformation("Une erreur est survenue !", snackBar, Duration.seconds(3), SnackAlertService.AlertSnackType.ERROR);
 			}
 		} else {

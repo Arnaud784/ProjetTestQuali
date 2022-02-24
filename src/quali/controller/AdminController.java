@@ -45,12 +45,9 @@ public class AdminController extends DecorationController implements Initializab
 	@FXML
 	private TableColumn<User, String> birthday;
 
-	/*@FXML
-	private TableColumn<User, String> admin;*/
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		super.initialize(root, Main.stage,false);
+		super.initialize(root, Main.getStage(),false);
 
 		usersTable.setItems(Context.getInstance().getUsersList());
 		firstname.setCellValueFactory(cellData -> cellData.getValue().getFirstNameProperty());
@@ -59,13 +56,12 @@ public class AdminController extends DecorationController implements Initializab
 		address.setCellValueFactory(cellData -> cellData.getValue().getAddressProperty());
 		phone.setCellValueFactory(cellData -> cellData.getValue().getPhoneProperty());
 		birthday.setCellValueFactory(cellData -> cellData.getValue().getBirthdayProperty());
-		//admin.setCellValueFactory(cellData -> cellData.getValue().getAdminProperty());
 
 		deconnect.setOnMouseClicked(event -> {
 			try {
 				CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_HOME_FXML));
 			} catch (IOException e) {
-				e.printStackTrace();
+				Main.LOGGER.severe("Impossible de charger la page d'accueil");
 			}
 		});
 	}

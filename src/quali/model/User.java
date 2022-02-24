@@ -23,8 +23,7 @@ public class User {
 
 	private boolean isAdmin;
 
-	public User(String firstName, String lastName, String email, String password, String address, String phone,
-			String picture, String birthDay, boolean isAdmin) {
+	public User(String firstName, String lastName, String email, String password, String address, String phone, String picture) {
 
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -33,8 +32,6 @@ public class User {
 		this.address = address;
 		this.phone = phone;
 		this.picture = picture;
-		this.birthDay = birthDay;
-		this.isAdmin = isAdmin;
 	}
 
 	public String getFirstName() {

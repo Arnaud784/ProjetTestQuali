@@ -26,8 +26,6 @@ public class RegisterController extends DecorationController implements Initiali
 
 	private static final String COMMONS_VIEWS_USER_FXML = "../view/User.fxml";
 
-	//private static final String COMMONS_VIEWS_USER_FXML = "../view/User.fxml";
-
 	@FXML
 	private AnchorPane root;
 
@@ -69,13 +67,13 @@ public class RegisterController extends DecorationController implements Initiali
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		super.initialize(root, Main.stage,false);
+		super.initialize(root, Main.getStage(),false);
 
 		cancel.setOnMouseClicked(event -> {
 			try {
 				CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_HOME_FXML));
 			} catch (IOException e) {
-				e.printStackTrace();
+				Main.LOGGER.severe("Impossible de charger la page d'accueil");
 			}
 		});
 
@@ -88,7 +86,9 @@ public class RegisterController extends DecorationController implements Initiali
 	public void register() {
 		if(!firstName.getText().isEmpty() && !lastName.getText().isEmpty() && !email.getText().isEmpty() && !password.getText().isEmpty() && !address.getText().isEmpty() && !phone.getText().isEmpty() && !picture.getText().isEmpty() && !birthday.toString().isEmpty()){
 			if(Context.getInstance().findUser(email.getText()) == null) {
-				User user = new User(firstName.getText(), lastName.getText(), email.getText(), password.getText(), address.getText(), phone.getText(), picture.getText(), birthday.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), admin.isSelected());
+				User user = new User(firstName.getText(), lastName.getText(), email.getText(), password.getText(), address.getText(), phone.getText(), picture.getText());
+				user.setBirthDay(birthday.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+				user.setAdmin(admin.isSelected());
 				Context.getInstance().getUsersList().add(user);
 				Context.getInstance().setLoggedUser(user);
 				try {
@@ -98,7 +98,7 @@ public class RegisterController extends DecorationController implements Initiali
 						CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_USER_FXML));
 					}
 				} catch (IOException e) {
-					e.printStackTrace();
+					Main.LOGGER.severe("Impossible de charger la page de l'utilisateur");
 				}
 			} else {
 				SnackAlertService.displayInformation("Cet email est déjà utilisé !", snackBar, Duration.seconds(3), SnackAlertService.AlertSnackType.ERROR);

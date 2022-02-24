@@ -48,7 +48,7 @@ public class HomeController extends DecorationController implements Initializabl
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		super.initialize(root, Main.stage,false);
+		super.initialize(root, Main.getStage(),false);
 
 		if(!Context.getInstance().getPasswordIsForgot().isEmpty()) {
 			SnackAlertService.displayInformation("Le mot de passe est : "+Context.getInstance().getPasswordIsForgot(), snackBar, Duration.seconds(10), SnackAlertService.AlertSnackType.INFORMATION);
@@ -59,7 +59,7 @@ public class HomeController extends DecorationController implements Initializabl
 			try {
 				CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_FORGOT_FXML));
 			} catch (IOException e) {
-				e.printStackTrace();
+				Main.LOGGER.severe("Impossible de charger la page mot de passe oublié");
 			}
 		});
 
@@ -68,7 +68,7 @@ public class HomeController extends DecorationController implements Initializabl
 			try {
 				CanvasController.loadPage(getClass().getResource(COMMONS_VIEWS_REGISTER_FXML));
 			} catch (IOException e) {
-				e.printStackTrace();
+				Main.LOGGER.severe("Impossible de charger la page inscription");
 			}
 		});
 	}
@@ -91,7 +91,7 @@ public class HomeController extends DecorationController implements Initializabl
 					}
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
+				Main.LOGGER.severe("Erreur lors de la connexion");
 				SnackAlertService.displayInformation("Une erreur est survenue !", snackBar, Duration.seconds(3), SnackAlertService.AlertSnackType.ERROR);
 			}
 		} else {
